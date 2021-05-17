@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadGames } from "../actions/gamesActions";
+import GameDetails from "../components/GameDetails";
 
 // Components
 import GameCard from "../components/GameCard";
@@ -15,8 +16,12 @@ const Home = () => {
     dispatch(loadGames())
   }, [dispatch])
   const {popularGames, newGames, upcomingGames} = useSelector(state => state.games)
+  const {screenshots} = useSelector(state => state.gameDetails)
   return ( 
     <GameList>
+      {screenshots.length && (
+      <GameDetails/>
+      )}
       <h2>Upcoming Games</h2>
       <Game>
         {upcomingGames.map(game => (

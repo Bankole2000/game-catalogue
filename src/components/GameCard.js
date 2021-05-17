@@ -10,7 +10,7 @@ import { loadGameDetails } from "../actions/gamesActions";
 const GameCard = ({game}) => {
   console.log({game});
   const {name, released, background_image: image, dominant_color: color, id } = game; 
-
+  console.log({color});
   const formatDate = (datelike) => {
     return new Date(datelike).toLocaleString(['en-US'], {
       weekday: 'short',
@@ -45,7 +45,7 @@ const StyledGame = styled(motion.div)`
   img {
     width: 100%;
     height: 30vh;
-    margin-bottom: -18px;
+    /* margin-bottom: -18px; */
     object-fit: cover;
   }
 `
